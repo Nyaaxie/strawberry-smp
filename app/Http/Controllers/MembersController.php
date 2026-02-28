@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class MembersController 
+class MembersController extends Controller
 {
     public function index()
     {
@@ -27,24 +26,16 @@ class MembersController
         return view('members.index', compact('members'));
     }
 
-    public function updateAvatar(Request $request, $id)
+    public function uploadAvatar(Request $request, $id)
     {
-        $request->validate([
-            'avatar' => 'required|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
-        ]);
-
         $user = User::findOrFail($id);
 
-        // Delete old avatar if exists
-        if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
-            Storage::disk('public')->delete($user->avatar);
+        if ($request->hasFile('avatar')) {
+            $path = $request->file('avatar')->store('avatars', 'public');
+            $user->avatar = $path;
+            $user->save();
         }
 
-        // Store new avatar
-        $path = $request->file('avatar')->store('avatars', 'public');
-        $user->avatar = $path;
-        $user->save();
-
-        return redirect()->route('members.index')->with('success', 'Avatar updated!');
+        return back()->with('success', 'Avatar updated!');
     }
 }
