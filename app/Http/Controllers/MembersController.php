@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class MembersController extends Controller
+
+class MembersController 
 {
     public function index()
     {
