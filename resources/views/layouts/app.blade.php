@@ -67,7 +67,7 @@
         </div>
         <div class="footer-right">
             <div class="footer-circle">
-               <a href=""> <i class="fab fa-facebook-f"></i></a>    
+               <a href="https://www.facebook.com/strawberrysmpmc"> <i class="fab fa-facebook-f"></i></a>    
             </div>
         </div>
     </footer>
