@@ -15,5 +15,6 @@ cmds = [
   "php artisan view:cache"
 ]
 
+
 [start]
-cmd = "bash start.sh"
+cmd = "./start.sh"
