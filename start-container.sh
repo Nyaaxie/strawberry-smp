@@ -2,14 +2,9 @@
 set -e
 
 php artisan config:clear
-php artisan cache:clear
 php artisan migrate --force
 php artisan db:seed --force
 php artisan storage:link || true
 php artisan optimize
-php -S 0.0.0.0:$PORT -t public
-```
 
-4. Create another file called `Procfile` (no extension) with:
-```
-web: bash start.sh
+exec frankenphp run --config /Caddyfile
