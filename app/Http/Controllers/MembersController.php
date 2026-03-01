@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class MembersController 
@@ -27,16 +28,35 @@ class MembersController
         return view('members.index', compact('members'));
     }
 
-    public function uploadAvatar(Request $request, $id)
-    {
-        $user = User::findOrFail($id);
+   public function uploadAvatar(Request $request, $id)
+{
+    // Check secret token
+    if ($request->input('secret') !== env('UPLOAD_SECRET')) {
+        abort(403, 'Unauthorized');
+    }
 
-        if ($request->hasFile('avatar')) {
-            $path = $request->file('avatar')->store('avatars', 'public');
-            $user->avatar = $path;
-            $user->save();
+    $request->validate([
+        'avatar' => [
+            'required',
+            'image',
+            'mimes:jpeg,png,jpg,gif,webp',
+            'max:2048',
+        ]
+    ]);
+
+    $user = User::findOrFail($id);
+
+    if ($request->hasFile('avatar')) {
+        // Delete old avatar if exists
+        if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
+            Storage::disk('public')->delete($user->avatar);
         }
 
-        return back()->with('success', 'Avatar updated!');
+        $path = $request->file('avatar')->store('avatars', 'public');
+        $user->avatar = $path;
+        $user->save();
     }
+
+    return back()->with('success', 'Avatar updated!');
+}
 }
