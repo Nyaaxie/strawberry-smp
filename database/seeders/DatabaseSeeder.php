@@ -59,9 +59,9 @@ class DatabaseSeeder extends Seeder
                 'platform'       => 'java',
                 'favorite_color' => 'light blue',
                 'joined_at'      => '2024-02-15',
-                'bio'            => ' Hi berries, I’m Nyaaxie! I am 19, born in the month o July, & my favorite color i light blue! I joined on Fe 15, 2024 as well, & I alway play on Java. I enjoy th explorer role, I love th snow biome & armadillo mob & cobblestone block i best for me!
+                'bio'            => " Hi berries, I’m Nyaaxie! I am 19, born in the month o July, & my favorite color i light blue! I joined on Fe 15, 2024 as well, & I alway play on Java. I enjoy th explorer role, I love th snow biome & armadillo mob & cobblestone block i best for me!
                 
-                ',     
+                ",     
                 
             ],
             [
@@ -84,8 +84,8 @@ class DatabaseSeeder extends Seeder
                 'platform'       => 'java',
                 'favorite_color' => 'pink',
                 'joined_at'      => '2024-03-27',
-                'bio'            => 'Hey berries, I’m Sopeya!
- I am 22 y.o., born in the month of May, & pink is my favorite color! I joined the server on March 27, 2024, & I love playing on Java! My role is a merchant, I admire cherry & flower biomes & axolotl mob, & all concrete blocks are my fave!'
+                'bio'            => "Hey berries, I’m Sopeya!
+ I am 22 y.o., born in the month of May, & pink is my favorite color! I joined the server on March 27, 2024, & I love playing on Java! My role is a merchant, I admire cherry & flower biomes & axolotl mob, & all concrete blocks are my fave!"
 
 
 
@@ -111,9 +111,9 @@ class DatabaseSeeder extends Seeder
                 'platform'       => 'java',
                 'favorite_color' => 'blue',
                 'joined_at'      => '2024-02-15',
-                'bio'            => ' Hi berries, I’m Ethan! I am 12 y.o., born in the month of October, & blue is my fave color! I joined on Aug 18, 2022, & I usually play on Java. My role is an adventurer, I love the plains biome & enderman mob, & the bedrock block is my favorite of all!
+                'bio'            => " Hi berries, I’m Ethan! I am 12 y.o., born in the month of October, & blue is my fave color! I joined on Aug 18, 2022, & I usually play on Java. My role is an adventurer, I love the plains biome & enderman mob, & the bedrock block is my favorite of all!
                 
-                ',     
+                ",     
                 
             ],
 
