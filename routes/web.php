@@ -10,6 +10,4 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/rules', [RulesController::class, 'index']);
 Route::get('/members', [MembersController::class, 'index'])->name('members.index');
 Route::get('/reminders', [RemindersController::class, 'index']);
-Route::post('/members/{id}/avatar', [MembersController::class, 'uploadAvatar'])
-    ->name('members.avatar')
-    ->middleware('throttle:3,1');
+Route::post('/members/{id}/avatar', [MembersController::class, 'uploadAvatar'])->name('members.avatar');

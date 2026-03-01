@@ -85,12 +85,20 @@
     </div>
 
    
-   <form action="/members/{{ $member->id }}/avatar" method="POST" enctype="multipart/form-data">
-    @csrf
-    <input type="hidden" name="secret" value="strawberry2024">
-    <input type="file" name="avatar" accept="image/*">
-    <button type="submit">Upload Avatar</button>
-</form>
+    {{-- <form action="{{ route('members.avatar', $member->id) }}" 
+          method="POST" 
+          enctype="multipart/form-data"
+          class="avatar-upload-form">
+        @csrf
+        <label class="upload-btn">
+            📷 Change Avatar
+            <input type="file" 
+                   name="avatar" 
+                   accept="image/*" 
+                   onchange="this.form.submit()" 
+                   hidden>
+        </label>
+    </form> --}}
 
     <div class="bio-name-row">
         <span class="bio-star">✦</span>
