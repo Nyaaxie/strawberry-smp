@@ -7,4 +7,4 @@ php artisan db:seed --force
 php artisan storage:link || true
 php artisan optimize
 
-exec frankenphp run --config /Caddyfile
+php -S 0.0.0.0:$PORT -t public
